@@ -1,0 +1,29 @@
+#cabecera nav{
+    background:#5D1414;
+    
+    
+}
+#nuevaOrientacion{
+    text-align: center;
+    background : #5D1414;
+    font-family: fantasy;
+    font-size: 4em;
+    color: white;
+     
+}
+ #nuevaOrientacion button{
+   background-color:#338108;
+   color:white; 
+}
+ #nuevaOrientacion a{
+   text-decoration: none;
+    color:white;
+}
+
+p #tarjetas{
+    font-family: fantasy;
+    font-size: 4em;
+    color: green;
+}
+
+
