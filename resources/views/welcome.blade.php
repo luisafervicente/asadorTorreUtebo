@@ -1,2 +1,12 @@
- @extends('layouts.plantilla')
-  
+@extends('layouts.plantilla')
+@section('cabecera')
+@include('layouts.cabecera')
+@stop
+@section('carrusel')
+@include('layouts.carrusel')
+@include('layouts.bloque_nueva_orientacion')
+@include('layouts.barra_carta')
+@stop
+@section('ofertas')
+@include('layouts.ofertas_semanales')
+@stop
