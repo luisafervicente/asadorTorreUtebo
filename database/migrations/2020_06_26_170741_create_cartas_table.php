@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCartaTable extends Migration
+class CreateCartasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,14 @@ class CreateCartaTable extends Migration
      */
     public function up()
     {
-        Schema::create('carta', function (Blueprint $table) {
-            $table->id();
+        Schema::create('cartas', function (Blueprint $table) {
+         
+             $table->id();
+            $table->string('calisificación');
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->double('precio');
+            $table->string('imagen');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateCartaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carta');
+        Schema::dropIfExists('cartas');
     }
 }

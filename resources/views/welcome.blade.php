@@ -10,3 +10,9 @@
 @section('ofertas')
 @include('layouts.ofertas_semanales')
 @stop
+@section('pie')
+@include('layouts.pie')
+@stop
+@section('cokis')
+@include('layouts.coockis')
+@stop

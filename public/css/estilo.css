@@ -18,12 +18,16 @@
  #nuevaOrientacion a{
    text-decoration: none;
     color:white;
-}
-
+ }
+#tarjetas{
+     font-family: fantasy;
+     text-align: center;
+}   
 p #tarjetas{
     font-family: fantasy;
     font-size: 4em;
     color: green;
+    text-align: center;
 }
 
 
@@ -36,7 +40,33 @@ p #tarjetas{
 }
 
  img #tarjetas  {
-    border-radius: 50%;
+    border-radius:50%;
     margin:5%; 
     
+}
+#pie{
+    text-align: center;
+    background : #5D1414;
+    font-family: fantasy;
+    font-size: 4em;
+    color: white;
+}
+.estrella{
+ 
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+ 
+.texto-encima{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.centrado{
+    
+    position: absolute;
+    top: 80%;
+    left: 48%;
+    transform: translate(0%, 0%);
 }

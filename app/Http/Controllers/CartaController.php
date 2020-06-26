@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Carta;
 
-class CartaController extends Controller
-{
+class CartaController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $carta = Carta::get();
+        return view('carta.index', compact('carta'));
     }
 
     /**
@@ -21,9 +22,8 @@ class CartaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        return view('carta.create');
     }
 
     /**
@@ -32,9 +32,16 @@ class CartaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $request->validate(['clasificacion' => ['required', 'string'],
+            'nombre' => ['required', 'string'],
+            'precio' => ['required'],
+            'descripcion' => ['required', 'string'],
+            'imagen' => ["required|image|mimes:jpeg,png|max:2000"]
+        ]);
+
+        $carta = $request->all(); //todos los request de formulario
+        return redirect()->route('carta.index')->with('session', 'Producto añadido correctamente a la carta'); //me voy a crear una dirección
     }
 
     /**
@@ -43,9 +50,8 @@ class CartaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id) {
+        return view('carta.show');
     }
 
     /**
@@ -54,9 +60,9 @@ class CartaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id) {
+        $producto = Carta::find($id);
+        return view('carta.edit', compact('producto'));
     }
 
     /**
@@ -66,9 +72,17 @@ class CartaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+        $request->validate(['clasificacion' => ['required', 'string'],
+            'nombre' => ['required', 'string'],
+            'precio' => ['required'],
+            'descripcion' => ['required', 'string'],
+            'imagen' => ["required|image|mimes:jpeg,png|max:2000"]
+        ]);
+
+        $carta = $request->all(); //todos los request de formulario
+        $carta->save();
+        return redirect()->route('carta.index')->with('session', 'Producto modificado'); //me voy a crear 
     }
 
     /**
@@ -77,8 +91,9 @@ class CartaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+        $producto = Carta::find($id);
+        $producto::delete();
     }
+
 }

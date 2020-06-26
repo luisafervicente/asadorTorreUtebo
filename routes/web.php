@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Carta;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,4 +24,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/carta', 'ControllerCarta')->names('carta');
+Route::resource('/carta', 'CartaController')->names('carta');
