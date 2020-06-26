@@ -1,4 +1,11 @@
-
+    
+    
+//funcion para que se cargen las cookies   
+    function checkCookies() {
+       alert('Debes aceptar las cookies para se guir navegando');
+  
+  }
+ 
         document.addEventListener('DOMContentLoaded', () => {
 
     let cookies = () => {
@@ -51,8 +58,8 @@
          * Método que ejecuta tu código si aceptan las cookies
          */
         function ejecutarSiAcepta() {
-            /////////////////// Tu código ////////////////
-            ////////////  ¿Google Analítics? /////////////
+            
+            
         }
 
         /**
