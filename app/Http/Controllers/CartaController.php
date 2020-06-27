@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator; 
 use Illuminate\Http\Request;
 use App\Carta;
 
@@ -28,7 +29,8 @@ class CartaController extends Controller {
 
     /**
      * Store a newly created resource in storage.
-     *
+     *la única dificultad es que uno de los request es el enclace a una imagen,
+     * la gusrdaremos en un archivo temporal, para añadirla despues.
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -37,11 +39,18 @@ class CartaController extends Controller {
             'nombre' => ['required', 'string'],
             'precio' => ['required'],
             'descripcion' => ['required', 'string'],
-            'imagen' => ["required|image|mimes:jpeg,png|max:2000"]
+            'imagen' => ['required',  'max:2000']
         ]);
+       $carta = $request->all(); //todos los request de formulari
+        if ($archivo = $request->file('imagen')) {//código para subir imagénes
+            $nombre = $archivo->getClientOriginalName();
+            $archivo->move('images', $nombre);
+            $carta['image'] = $nombre;
+        }
+        $cartaFinal = Carta::create($carta);
+       
 
-        $carta = $request->all(); //todos los request de formulario
-        return redirect()->route('carta.index')->with('session', 'Producto añadido correctamente a la carta'); //me voy a crear una dirección
+        return redirect()->route('carta.index')->with('status', 'Producto añadido correctamente a la carta'); //me voy a crear una dirección
     }
 
     /**
@@ -51,7 +60,8 @@ class CartaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        return view('carta.show');
+        $producto=Carta::find($id);
+        return view('carta.show',compact('producto'));
     }
 
     /**

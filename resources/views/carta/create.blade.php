@@ -3,8 +3,8 @@
 @include('layouts.cabecera')
 @stop
 @section('carrusel')
-{!! Form::open(['route' => 'carta.edit',$producto->id],['class' => 'form-group row' ])!!}
-@method('PUT')
+{!! Form::open(['route' => 'carta.store'],['class' => 'form-group row' ])!!}
+
 {{  Form::label('clasificacion', 'Clasificación en carta', ['class' => 'col-md-4', 'col-form-label', 'text-md-right']) }}
 {{  Form::text('clasificacion', 'Intoduce en que apartado de la carta quieres que aparezca el producto',['class' => 'form-control'] ) }}
 
@@ -31,5 +31,4 @@
 @section('pie')
 @include('layouts.pie')
 @stop
-
 

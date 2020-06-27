@@ -16,7 +16,7 @@ class CreateCartasTable extends Migration
         Schema::create('cartas', function (Blueprint $table) {
          
              $table->id();
-            $table->string('calisificación');
+            $table->string('clasificacion');
             $table->string('nombre');
             $table->string('descripcion');
             $table->double('precio');
