@@ -9,14 +9,13 @@
                             <ul class="navbar-nav ">
                                 <li>
                                     <nav class="navbar">
-                                        <a class="navbar " href="#"  id='enlace'  >
-                                            
-                                            ASADOR LA TORRE
+                                        <a class="navbar " href="#"  id='enlace'>
+                                          ASADOR LA TORRE
                                         </a>
                                     </nav>
                                 </li>
                                 <li class="navbar-brand active">
-                                    <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{{ asset('home')}}">Inicio<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="navbar-brand active">
                                     <a class="nav-link" href="#">Carta</a>

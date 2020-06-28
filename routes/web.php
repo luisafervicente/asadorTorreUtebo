@@ -25,3 +25,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/carta', 'CartaController')->names('carta');
+Route::get('/muestra_carta/{clasificacion}', 'CartaController@muestra')->name('muestra_carta');
+     

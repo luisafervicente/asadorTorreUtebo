@@ -24,7 +24,8 @@ class CartaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('carta.create');
+        $carta = Carta::get();
+        return view('carta.create',compact('carta'));
     }
 
     /**
@@ -105,5 +106,38 @@ class CartaController extends Controller {
         $producto = Carta::find($id);
         $producto::delete();
     }
+    
 
-}
+    /**
+     * Esta función es para que según sea la clasificación del objeto carta
+     *valla a una ruta o a otra.
+     *
+     * @param  string $clasificacion
+     * @return \Illuminate\Http\Response
+     */
+    public function muestra($descripcion){
+        $carta=Carta::get();
+        
+        $seleccion=[];//creamos un array con los productos que sean de la descripcion buscada
+       foreach($carta as $producto){
+           if($producto->clasificacion==$descripcion){
+               $seleccion[] = $producto ;
+               
+           }
+       }
+      
+       return view('detalle_carta', compact('seleccion'));
+            
+            
+            
+            
+        }
+        
+        
+        
+    }
+    
+    
+    
+    
+ 

@@ -20,10 +20,10 @@
         @foreach($carta as $producto)
         <tr>
             <th scope="row">1</th>
-            <td>{{$producto->nombre}}  </td>
+            <td>{{$producto->clasificacion}}  </td>
             <td>{{$producto->nombre}} </td>
-            <td>{{$producto->nombre}} </td>
-            <td>{{$producto->nombre}} </td>
+            <td>{{$producto->descripcion}} </td>
+            <td>{{$producto->precio}} </td>
             <td><a href='{{route("carta.show", $producto->id)}}' class="success"> Mostrar</a> </td>
             <td><a href='#'class="success"> Editar</a> </td>
             <td><a href='#'class="success"> Borrar</a> </td>
